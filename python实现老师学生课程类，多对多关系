@@ -1,0 +1,111 @@
+class Kech:
+    def __init__(self, name):
+        self.name = name
+        self.tea_list = []
+        self.stu_list = []
+    def tea(self, Tea):
+        self.tea_list.append(Tea)
+    def stu(self,Stu):
+        self.stu_list.append(Stu)
+    def work1(self):
+        f=[]
+        g=[]
+        for j in self.tea_list:
+            f.append(j)
+        print(self.name + " 课程的上课老师有：",'，'.join(f))
+        for k in self.stu_list:
+            g.append(k)
+        print(self.name + " 课程的选修学生有：",'，'.join(g))
+class Stu:
+    def __init__(self,name):
+        self.name=name
+        self.tea_list = []
+        self.kech_list = []
+    def tea(self,Tea):
+        self.tea_list.append(Tea)
+    def kech(self, Kech):
+        self.kech_list.append(Kech)
+    def xuexi(self):
+        f = []
+        g = []
+        for k in self.tea_list:
+            f.append(k)
+        print(self.name+" 学生的老师有：",'，'.join(f))
+        for l in self.kech_list:
+            g.append(l)
+        print(self.name+" 学生选修的课程有：" , '，'.join(g))
+class Tea:
+    def __init__(self,name):
+        self.name = name
+        self.stu_list = []
+        self.kech_list = []
+    def stu(self,Stu):
+        self.stu_list.append(Stu)
+    def kech(self,Kech):
+        self.kech_list.append(Kech)
+    def jiaoxue1(self):
+        f = []
+        g = []
+        for m in self.stu_list:
+            f.append(m)
+        print(self.name+" 老师的学生有：",'，'.join(f))
+        for n in self.kech_list:
+            g.append(n)
+        print(self.name + " 老师教的课程有:",'，'.join(g))
+b1=['数学','英语','语文']
+b2=['大白','大黑']
+b3=['小白','小黑']
+print("总共有3门课程：数学，英语，语文")
+print("总共有2位老师：大白，大黑")
+print("总共有2名学生：小白，小黑")
+print("-"*30)
+a1=input("请输入想要查询的课程名：")
+while a1 not in b1:
+    a1=input("输入错误，请重新输入课程名：")
+    if a1 in b1:
+        break
+    else:
+        continue
+a2=input("请输入想要查询的老师名：")
+while a2 not in b2:
+    a2=input("输入错误，请重新输入老师名字：")
+    if a2 in b2:
+        break
+    else:
+        continue
+a3=input("请输入想要查询的同学名：")
+while a3 not in b3:
+    a3=input("输入错误，请重新输入同学名：")
+    if a3 in b3:
+        break
+    else:
+        continue
+k=Kech(a1)
+t=Tea(a2)
+s=Stu(a3)
+k1=Kech("英语")
+t1=Tea("大黑")
+s1=Stu("小白")
+k2=Kech("语文")
+t2=Tea("大白")
+s2=Stu("小黑")
+k3=Kech("数学")
+k.tea(t1.name)
+k.tea(t2.name)
+k.stu(s1.name)
+t.stu(s1.name)
+t.stu(s2.name)
+t.kech(k1.name)
+t.kech(k2.name)
+t.kech(k3.name)
+s.kech(k1.name)
+s.kech(k2.name)
+s.kech(k3.name)
+s.tea(t1.name)
+print("-"*20)
+k.work1()
+print("-"*20)
+t.jiaoxue1()
+print("-"*20)
+s.xuexi()
+print("-"*20)
