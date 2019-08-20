@@ -1,0 +1,32 @@
+def sum(k,j):
+    i=0
+    b=[]
+    for i in k:
+        b.append(i+j)
+    print("加减运算后列表为：",b,end="")
+def num(k,j):
+    i=0
+    b=[]
+    for i in k:
+        b.append(i*j)
+    print("乘法运算后的列表为：",b,end="")
+print("------map函数------")
+i=[]
+l=input("请输入列表长度：")
+l=int(l)
+m=0
+while True:
+    if m < l:
+        a=input("输入链列表中元素：")
+        a=int(a)
+        i.append(a)
+        m=m+1
+        if m>=l:
+            break
+print("你输入的列表为：",i)
+j=int(input("请输入要增加/减少的值："))
+sum(i,j)
+print()
+o=int(input("请输入要乘的值："))
+num(i,o)
+print("\n"+"结束！！！")
