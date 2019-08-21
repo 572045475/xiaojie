@@ -1,0 +1,26 @@
+import random
+def product()：
+    while True:
+        print("开始生产")
+        data=random.randint(0,9)
+        print("生产者生产了"+str(data))
+        yield data
+def consumer():
+    while True:
+        print("开始消费")
+        data=yield
+        print("消费了"+str(data))
+
+def cleck(jobs,product,consumer):
+    p=product()
+    print("11111111111")
+    c=consumer()
+    print("22222222222222")
+    next(c)
+    print("3333333333")
+    for i in range(jobs):
+        data=next(p)
+        print("44444444444:"+str(data))
+        c.send(data)
+        print("55555555555")
+cleck(3,product,consumer)
